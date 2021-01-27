@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+	<!-- local js -->
+	<script type="text/javascript" src="src/bunch.js"></script>
+	<!-- online js for latex support -->
+	<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+	<noscript>Sorry, your browser does not support JavaScript!</noscript>
+</head>
+
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <h2> Main Ring: </h2><br>
+	<p>
+        Circumference: <input type="number" id="circumference" value="800" 
+             onclick="circulating_freq_e()" onblur="circulating_freq_e()" onkeypress="circulating_freq_e()"> m
+        <br>Frequency：<input type="number" id="f_main_ring" value="500"> MHz 
+
+        <br><br>Average Current: <input type="number" id="average_current" value="200" 
+            onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> mA 
+        <br>fill_rate:<input type="number" id="fill_rate_main_ring" value="30" 
+            onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> % 
+        <br>
+    </p>
+
+    Circulating Frequency：<input type="number" id="f_circulating" value="" onclick="circulating_freq_e()" 
+        onblur="circulating_freq_e()" onkeypress="circulating_freq_e()"> MHz 
+    <br>h：<input type="number" id="harmonic_number" value="" 
+        onclick="harmonic_number()" onblur="harmonic_number()" onkeypress="harmonic_number()"> 
+    
+    <h2> Booster: </h2><br>(assuming single bunch injection and accleration)<br>
+    Booster transmission rate:<input type="number" id="booster_transmission_rate" value="100" 
+        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> % 
+    <br>Single bunch charge at booster injection: <input type="number" id="single_bunch_charge_booster" value=""
+        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> nC 
+   
+    <h2> Linac: </h2><br>
+    Linac transmission rate:<input type="number" id="linac_transmission_rate" value="60" 
+        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> % 
+    
+    <h2> Gun: </h2><br>
+    Single bunch charge at gun exit: <input type="number" id="single_bunch_charge_gun" value="" 
+        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> nC 
+
+
+    <br />
+    <button onclick="reset();single_bunch_charge()">Default</button>
+    <!-- 
+    <h2> Main Ring: </h2><br>
+	<p>
+		Circumference: <input type="number" id="circumference" value=""> m
+        <br>Frequency：<input type="number" id="f_main_ring" value=""> GHz 
+	</p> -->
+    
+</body>
