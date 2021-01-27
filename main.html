@@ -18,9 +18,9 @@
         <br>Frequency：<input type="number" id="f_main_ring" value="500"> MHz 
 
         <br><br>Average Current: <input type="number" id="average_current" value="200" 
-            onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> mA 
+            onclick="update()" onblur="update()" onkeypress="update()"> mA 
         <br>fill_rate:<input type="number" id="fill_rate_main_ring" value="30" 
-            onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> % 
+            onclick="update()" onblur="update()" onkeypress="update()"> % 
         <br>
     </p>
 
@@ -30,27 +30,44 @@
         onclick="harmonic_number()" onblur="harmonic_number()" onkeypress="harmonic_number()"> 
     
     <h2> Booster: </h2><br>(assuming single bunch injection and accleration)<br>
-    Booster transmission rate:<input type="number" id="booster_transmission_rate" value="100" 
-        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> % 
+    Booster transmission rate:<input type="number" id="booster_transmission_rate" value="50" 
+        onclick="update()" onblur="update()" onkeypress="update()"> % 
     <br>Single bunch charge at booster injection: <input type="number" id="single_bunch_charge_booster" value=""
-        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> nC 
+        onclick="update()" onblur="update()" onkeypress="update()"> nC 
    
     <h2> Linac: </h2><br>
     Linac transmission rate:<input type="number" id="linac_transmission_rate" value="60" 
-        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> % 
+        onclick="update()" onblur="update()" onkeypress="update()"> % 
     
     <h2> Gun: </h2><br>
     Single bunch charge at gun exit: <input type="number" id="single_bunch_charge_gun" value="" 
-        onclick="single_bunch_charge()" onblur="single_bunch_charge()" onkeypress="single_bunch_charge()"> nC 
+        onclick="update()" onblur="update()" onkeypress="update()"> nC 
 
-
-    <br />
-    <button onclick="reset();single_bunch_charge()">Default</button>
-    <!-- 
-    <h2> Main Ring: </h2><br>
-	<p>
-		Circumference: <input type="number" id="circumference" value=""> m
-        <br>Frequency：<input type="number" id="f_main_ring" value=""> GHz 
-	</p> -->
-    
+    <br>V_dc:<input type="number" id="cathode_V" value="150" > kV
+    <br><br>Cathode:<br>
+    <br>r:<input type="number" id="cathode_r" value="8" > mm
+    <br>d:<input type="number" id="cathode_d" value="100" > mm
+    <br>I_extract: <input type="number" id="I_extract" value="" 
+    onclick="update()" onblur="update()" onkeypress="update()"> A
+    <br>pulse_length_extract: <input type="number" id="pulse_length_extract" value="" 
+    onclick="update()" onblur="update()" onkeypress="update()"> ns
+    <br><br><br />
+    <button onclick="reset();update()">Reset</button>
+     
+    <button onclick="update()">Update</button>
+    <!-- f = 2.33*{10^-6}*{\frac{\pi 𝑟^2 𝑉^{3/2})}{𝑑^2}} -->
+                <!-- f=\frac{\pi {𝑟^2} 𝑉^{3/2}}{𝑑^2} -->
+    <details>
+		<summary> Reference </summary>
+		<p>Note: Internet connection needed for rendering Latex </p>
+		<p>
+			Child-Langmuir Law :<br>
+			<div lang="latex">
+                f=2.33 \times 10^{-6} \times \frac{\pi r^2 V^{3/2}}{d^2}
+            </div>
+        </p>
+        <p>
+            Contact: <a href="mailto:liuxg@ihep.ac.cn">Xingguang Liu</a>. Jan 27, 2021.
+        </p>
+	</details>
 </body>
